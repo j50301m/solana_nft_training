@@ -45,7 +45,10 @@ const transaction = await createNft(umi, {
     sellerFeeBasisPoints: percentAmount(0),
     isCollection: true,
 });
-await transaction.sendAndConfirm(umi);
+const result = await transaction.sendAndConfirm(umi);
+console.log('Transaction signature:', result.signature);
+
+
 
 const createdCollectionNft = await fetchDigitalAsset(
     umi,
